@@ -5,9 +5,10 @@ from request import RequestUrl
 
 class PlotGraph:
     # function to plot the pie chart
-    def make_graph(self):
+    @staticmethod
+    def make_graph(res):
         new_word = []
-        res = RequestUrl()
+        # res = RequestUrl()
         for item in res.count_occur():
             new_word.append(item)
         print(f'The top word is: {new_word[0]}')

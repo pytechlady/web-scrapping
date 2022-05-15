@@ -1,6 +1,7 @@
 # An entrypoint of your application
 import requests.exceptions
 from plot import PlotGraph
+from request import RequestUrl
 
 
 draw_bar = PlotGraph()
@@ -8,7 +9,8 @@ while True:
     cont_checking = input("Would you like to scrap a site? 'y'/'n': ").lower()
     if cont_checking == "y":
         try:
-            draw_bar.make_graph()
+            res = RequestUrl()
+            draw_bar.make_graph(res)
         except requests.exceptions.MissingSchema:
             print("Invalid URL")
         except requests.exceptions.ConnectTimeout:
